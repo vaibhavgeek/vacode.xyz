@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal Blog of Vaibhav Maheshwari!">
+    <title>GraphQL , ReactJS and Apollo Client | vacode</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/theme-override.css">
+    <header>
+
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="/">~/vacode</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/log/">~/log</a>
+      </li>
+      
+
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">GraphQL , ReactJS and Apollo Client</span></h1>
+
+<h2 class="date">2020/06/09</h2>
+<p class="terms">
+  
+  
+  
+  
+  
+</p>
+</div>
+
+
+<div class="content-wrapper">
+  <main>
+    <p>We will build a client-sided GraphQL application which will combine React with GraphQL. The application would allow us to gather facebook profile information</p>
+<p>The following tutorial will be split into four sections.</p>
+<ul>
+<li>What is GraphQL and how is it different from REST API.</li>
+<li>What is Reactjs and Why should you use it?</li>
+<li>Creating a GraphQL backend in nodejs and express.</li>
+<li>Connecting Apollo Client to a react application</li>
+</ul>
+<h2 id="what-is-graphql-and-how-is-it-different-from-rest-api">What is GraphQL and how is it different from REST API?</h2>
+<p>One might ask themselves that they already understand the REST APIs very well and if there is a true need of GraphQL at all. GraphQL is based on objects instead of strings (comparing to SQL) and thus reduces complexity of the application.</p>
+<p>All the requests in GraphQL are handled by a single a end-point <code>/graphql</code>. Let that sink in for a while.</p>
+<p>Why does this matter? The actual transmission of requests and data is abstracted away. We no longer have to worry about things like response codes and planning out our urls like<br>
+<code>/articles/id/comments/user_id/comment_id/delete</code>.<br>
+In the HTTP API structure, we had to create 4 API to interact with our single object in model which were largely,</p>
+<ul>
+<li>post</li>
+<li>get</li>
+<li>delete</li>
+<li>put</li>
+</ul>
+<p>whereas GraphQL would have handler functions which would handle things for us.</p>
+<p>To summarize it we have following advantages of GraphQL.<br>
+<strong>GraphQL is declarative</strong>: Query responses are decided by the client rather than the server. A GraphQL query returns exactly what a client asks for and no more.</p>
+<p><strong>GraphQL is compositional</strong>: A GraphQL query itself is a hierarchical set of fields. The query is shaped just like the data it returns. It is a natural way for product engineers to describe data requirements.</p>
+<p><strong>GraphQL is strongly-typed</strong>: A GraphQL query can be ensured to be valid within a GraphQL type system at development time allowing the server to make guarantees about the response. This makes it easier to build high-quality client tools</p>
+<p>GraphQL fits in very well with abstraction based concept on which facebook devoloper tools function. The idea that abstraction reduces complexity is common across React, GraphQL and other devoloper tools that facebook has created and thus it workds seamlessly with ReactJS.</p>
+<h2 id="what-is-reactjs-and-why-should-you-use-it-with-graphql">What is Reactjs and Why should you use it with GraphQL?</h2>
+<p>The number of front-end libraries built on top javascript has clearly surpassed a guessable number. This has led it to be the butt of many jokes. There is a popular drinking joke amongst developers where a person names a noun and if there exists a js library with such a name, you are supposed to drink</p>
+<p>A new library called ReactJS somehow has emerged as the uncrowned champion amidst this bubble. It has gained massive popularity amongst management and developers alike. The best part about react js is that to get started you only need a basic understanding of HTML and Javascript. Not only is it easy to learn but also easy to migrate as it is not a framework but a library with small compatibility layers In this article, we will talk about why you should migrate to ReactJS and list few of the tech companies that have done the same.</p>
+<ol>
+<li>
+<p>SuperSonic Load<br>
+ReactJs uses Virtual Dynamic Object Model (V-DOM) which is built with a diff <a href="https://reactjs.org/docs/reconciliation.html">algorithm</a> (A tree of elements hierarchy is created, it is then calculated as to what is the fastest way to change the tree in order to get desired results). The basic idea behind V-DOM is that the changes are made in virtual DOM with pure javascript as compared to live DOM. Only the minimal changes that are needed to be made to page happen. So both the data bindings and changes to page content is minimalistic.</p>
+</li>
+<li>
+<p>Easy to Build<br>
+As mentioned in the first paragraph, developers are already familiar with Javascript so it is easy for them to get hands-on coding with ReactJS. This combined with the fact that the complete ReactJS framework is built on components thus making it easier to do A/B testing. For example, we can have an A/B test that compares 9 different design variations in the UI, which could mean maintaining code for 10 views for the duration of the test. This modular aspect makes it easy to test and reuse the same components in multiple places across devices.</p>
+</li>
+<li>
+<p>Security<br>
+With technologies coming and going so haphazardly, the need for a stable technology is what organizations are looking for. And, ReactJS is just that, since it is backed by big names like Facebook, Instagram and millions of developers globally. Even, with peer competition increasing, ReactJS has been able to sustain its popularity level and in fact, has been soaring high still. Hence, developers find security and stability in opting for React.</p>
+</li>
+<li>
+<p>Great Runtime Performance<br>
+To build the best visually-rich user experience for the webapp, efficient UI rendering is critical. While there are fewer hardware constraints on desktops/laptops (compared to other devices), expensive operations can still compromise UI responsiveness. In particular, DOM manipulations that result in reflows and repaints are especially detrimental to user experience. ReactJS comes with great runtime experience for the user.</p>
+</li>
+<li>
+<p>Isomorphic Javascript<br>
+React enables developers to build JavaScript UI code that can be executed in both server (e.g. Node.js) and client contexts. React allows the basic back-end to load whereas the client context can be loaded over time without the live DOM, thus reducing the loading time by a huge margin. Furthermore, the UI code written using the React library that is responsible for generating the markup could be shared with the client to handle cases where re-rendering was necessary.</p>
+</li>
+</ol>
+<h2 id="creating-a-graphql-backend-in-nodejs-and-express">Creating a GraphQL backend in nodejs and express.</h2>
+<p>We will first create a node directory that contains our backend. We will initialize using the command <code>$ npm init</code> in our terminal and initialize the npm repository. Furthermore create a new server.js file in the project directory. That will be the file where the code required to implement the Node.js GraphQL server will be inserted in the next section:</p>
+<p><code>$ touch server.js</code></p>
+<p>Finally make sure that NPM packages <em>graphql</em>, <em>express</em> and <em>express-graphql</em> are added to the project:</p>
+<p><code>$ npm install graphql express express-graphql --save</code></p>
+<p>Having installed these packages successfully we’re now ready to implement a first GraphQL server.</p>
+<p>Then we will create our server.js file and copy the following code.</p>
+<pre><code>var express = require('express');  
+var express_graphql = require('express-graphql');  
+var {buildSchema} = require('graphql');  
+// we require all dependencies  
+// GraphQL Schema  
+// We are passing the GraphQL Interface Definition Language which is used to define the schema   
+// It defines how the schema of our object is going to look like.   
+var schema = buildSchema(`  
+    type Query {  
+        message: String  
+    }  
+`);  
+  
+// Root resolver  
+// Root resolver has mapping to actions to functions. This is also called as handler functions.  
+var root = {  
+    message: () =&gt; 'Hello Wold!'  
+};  
+  
+// Create an expres server and a GraphQL endpoint, notice that there is only one end point as we stated before  
+var app = express();  
+app.use('/graphql', express_graphql({  
+    schema: schema,  
+    rootValue: root,  
+    graphiql: true  
+}));  
+  
+app.listen(4000, () =&gt; console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));  
+
+</code></pre><p>The code has been heavily commented so that you can easily understand what each and every line means. There are two main components here to focus on</p>
+<ul>
+<li>GraphQL Schema</li>
+<li>Root Resolver</li>
+</ul>
+<p><strong>GraphQL schema</strong><br>
+It is used to describe the complete APIs type system. It includes the complete set of data and defines how a client can access that data. Each time the client makes an API call, the call is validated against the schema. Only if the validation is successful the action is executed. Otherwise an error is returned.</p>
+<p><strong>Root Resolver</strong><br>
+Resolver contains the mapping of actions to functions. In our example from above the root resolver contains only one action: message. To keep things easy the assigned functions just returns the string <em>Hello World!</em>. Later on you’ll learn how to include multiple actions and assign different resolver functions.</p>
+<p>At the end of code we create and express end-point where these queries can be consumed.</p>
+<p>Next we will move on to our actual code and a more sophisticated example. You can create a new file and and copy paste the following code in it.</p>
+<pre><code>var express = require('express');  
+var express_graphql = require('express-graphql');  
+var {buildSchema} = require('graphql');  
+  
+// GraphQL Schema  
+var schema = buildSchema(`  
+    type Query {  
+        course(id: Int!): Course  
+        courses(topic: String): [Course]  
+    }  
+    type Mutation {  
+        updateCourseTopic(id: Int!, topic: String!): Course  
+    }  
+    type Course {  
+        id: Int  
+        title: String  
+        author: String  
+        description: String  
+        topic: String  
+        url: String  
+    }  
+`);  
+  
+var coursesData = [  
+    {  
+        id: 1,  
+        title: 'The Complete Node.js Developer Course',  
+        author: 'Andrew Mead, Rob Percival',  
+        description: 'Learn Node.js by building real-world applications with Node, Express, MongoDB, Mocha, and more!',  
+        topic: 'Node.js',  
+        url: 'https://codingthesmartway.com/courses/nodejs/'  
+    },  
+    {  
+        id: 2,  
+        title: 'Node.js, Express &amp; MongoDB Dev to Deployment',  
+        author: 'Brad Traversy',  
+        description: 'Learn by example building &amp; deploying real-world Node.js applications from absolute scratch',  
+        topic: 'Node.js',  
+        url: 'https://codingthesmartway.com/courses/nodejs-express-mongodb/'  
+    },  
+    {  
+        id: 3,  
+        title: 'JavaScript: Understanding The Weird Parts',  
+        author: 'Anthony Alicea',  
+        description: 'An advanced JavaScript course for everyone! Scope, closures, prototypes, this, build your own framework, and more.',  
+        topic: 'JavaScript',  
+        url: 'https://codingthesmartway.com/courses/understand-javascript/'  
+    }  
+]  
+  
+var getCourse = function(args) {  
+    var id = args.id;  
+    return coursesData.filter(course =&gt; {  
+        return course.id == id;  
+    })[0];  
+}  
+  
+var getCourses = function(args) {  
+    if (args.topic) {  
+        var topic = args.topic;  
+        return coursesData.filter(course =&gt; course.topic === topic);  
+    } else {  
+        return coursesData;  
+    }  
+}  
+  
+var updateCourseTopic = function({id, topic}) {  
+    coursesData.map(course =&gt; {  
+        if (course.id === id) {  
+            course.topic = topic;  
+            return course;  
+        }  
+    });  
+    return coursesData.filter(course =&gt; course.id === id)[0];  
+}  
+  
+// Root resolver  
+var root = {  
+    course: getCourse,  
+    courses: getCourses,  
+    updateCourseTopic: updateCourseTopic  
+};  
+  
+// Create an expres server and a GraphQL endpoint  
+var app = express();  
+app.use('/graphql', express_graphql({  
+    schema: schema,  
+    rootValue: root,  
+    graphiql: true  
+}));  
+  
+app.listen(4000, () =&gt; console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));  
+
+</code></pre><p>We write GraphQL query to fetch us the required results. You can explore this using the <code>http://localhost:4000/graphql</code> server. This code helps you to get a course, get courses and update a course Topic.</p>
+<h2 id="connecting-apollo-client-to-a-react-application">Connecting Apollo Client to a react application</h2>
+<p>We use the create-react-app to get us started with our project.</p>
+<pre><code>$ npx create-react-app react-graphql-frontend   
+$ cd react-graphql    
+$ npm start  
+
+</code></pre><p>The following packages needs to be installed:</p>
+<ul>
+<li><em>apollo-boost</em>: Package containing everything you need to set up Apollo Client</li>
+<li><em>react-apollo</em>: View layer integration for React</li>
+<li><em>graphql-tag</em>: Necessary for parsing your GraphQL queries</li>
+<li><em>graphql</em>: Also parses your GraphQL queries</li>
+</ul>
+<p>The installation of these dependencies can be done by using the following NPM command:</p>
+<p><code>$ npm install apollo-boost react-apollo graphql-tag graphql</code></p>
+<p>The main entry point of the React application can be found in <em>index.js</em>. The code contained in this file is making sure that <em>App</em> component is rendered out to the DOM element with ID root.Here is how the file should look.</p>
+<h3 id="indexjs">index.js</h3>
+<pre><code>import React from 'react';  
+import ReactDOM from 'react-dom';  
+import './index.css';  
+import App from './App';  
+  
+  
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));  
+
+</code></pre><h3 id="appjs">App.js</h3>
+<p>The main logic of our code is present in App.js. We need to do the following tasks.</p>
+<ul>
+<li>Creating An Instance Of ApolloClient</li>
+<li>Connecting ApolloClient To Your React App</li>
+</ul>
+<p><strong>Creating An Instance of ApolloClient</strong><br>
+First <em>ApolloClient</em> is imported from the <em>apollo-boost</em> library. A new instance of <em>ApolloClient</em> is created and stored in <em>client</em>. To create a new instance of <em>ApolloClient</em> you need to pass a configuration object to the constructor. This object must contain the <em>uri</em> property. The value of this property must be replaced which the URI of the GraphQL endpoint which should be accessed.</p>
+<pre><code>import ApolloClient from &quot;apollo-boost&quot;;  
+const client = new ApolloClient({    
+  uri: &quot;[Insert URI of GraphQL endpoint]&quot;    
+});  
+
+</code></pre><p><strong>Connecting ApolloClient To your react App</strong><br>
+Having established a connection to the GraphQL endpoint by using <em>ApolloClient</em> we now need to connect the instance of <em>ApolloClient</em> to the React app. To do so, please make sure to add the following lines of code in <em>App.js</em>:</p>
+<pre><code>import { ApolloProvider } from &quot;react-apollo&quot;;...const App = () =&gt; (    
+ &lt;ApolloProvider client={client}&gt;  
+    &lt;div className=&quot;container&quot;&gt;  
+      &lt;nav className=&quot;navbar navbar-dark bg-primary&quot;&gt;  
+        &lt;a className=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;React and GraphQL - Sample Application&lt;/a&gt;  
+      &lt;/nav&gt;  
+      &lt;div&gt;  
+        &lt;Courses /&gt;  
+      &lt;/div&gt;  
+    &lt;/div&gt;  
+  &lt;/ApolloProvider&gt;  
+);  
+
+</code></pre><p>Fist <em>ApolloProvide</em> is imported from the <em>react-apollo</em> library. The <code>&lt;ApolloProvider&gt;</code> element is then used in the component’s JSX code and is containing the template code which is used to render the component. This is what the final version of App.js would look like.</p>
+<p>App.js</p>
+<pre><code>import React, { Component } from 'react';  
+import './App.css';  
+import Courses from './Courses';  
+  
+import ApolloClient from &quot;apollo-boost&quot;;  
+import { ApolloProvider } from &quot;react-apollo&quot;;  
+  
+  
+const client = new ApolloClient({  
+  uri: &quot;http://localhost:4000/graphql&quot;  
+});  
+  
+  
+const App = () =&gt; (  
+  &lt;ApolloProvider client={client}&gt;  
+    &lt;div className=&quot;container&quot;&gt;  
+      &lt;nav className=&quot;navbar navbar-dark bg-primary&quot;&gt;  
+        &lt;a className=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;React and GraphQL - Sample Application&lt;/a&gt;  
+      &lt;/nav&gt;  
+      &lt;div&gt;  
+        &lt;Courses /&gt;  
+      &lt;/div&gt;  
+    &lt;/div&gt;  
+  &lt;/ApolloProvider&gt;  
+);  
+export default App;  
+
+</code></pre><h3 id="coursejs">Course.js</h3>
+<p>So far the output of courses is done within the <em>Courses</em> component. In the next step we’re going to introduce a new component to our project: <em>Course</em>. This component should then contain the code which is needed to output a single course. Once this component is available in can be used in <em>Courses</em> component.</p>
+<p>First let’s add a new file <em>Course.js</em> to the project and insert the following lines of code:.</p>
+<pre><code>import React from 'react';  
+const Course = (props) =&gt; (  
+    &lt;div className=&quot;card&quot; style={{'width': '100%', 'marginTop': '10px'}}&gt;  
+        &lt;div className=&quot;card-body&quot;&gt;  
+        &lt;h5 className=&quot;card-title&quot;&gt;{props.course.title}&lt;/h5&gt;  
+        &lt;h6 className=&quot;card-subtitle mb-2 text-muted&quot;&gt;by {props.course.author}&lt;/h6&gt;  
+        &lt;p className=&quot;card-text&quot;&gt;{props.course.description}&lt;/p&gt;  
+        &lt;a href={props.course.url} className=&quot;card-link&quot;&gt;Go to course ...&lt;/a&gt;  
+        &lt;/div&gt;  
+    &lt;/div&gt;  
+);  
+export default Course;  
+
+</code></pre><p>The implementation of this component is quite simple. The current course is handed over to <em>Course</em> component as a property and is available via <em>props.course</em>.</p>
+<h3 id="coursesjs">courses.js</h3>
+<p>Next we create a new courses component and copy paste the following in it.<br>
+courses.js</p>
+<pre><code>import React from 'react';  
+import { Query } from &quot;react-apollo&quot;;  
+import Course from './Course';  
+import gql from &quot;graphql-tag&quot;;  
+  
+  
+// The Query component makes it extremely easy to embed the GraphQL query directly in the JSX code of the component.   
+// Furthermore the Query component contains a callback method which is invoked once the GraphQL query is executed.  
+  
+const Courses = () =&gt; (  
+  &lt;Query  
+    query={gql`  
+      {  
+        allCourses {  
+          id  
+          title  
+          author  
+          description  
+          topic  
+          url  
+        }  
+      }  
+    `}  
+  &gt;  
+    {({ loading, error, data }) =&gt; {  
+      if (loading) return &lt;p&gt;Loading...&lt;/p&gt;;  
+      if (error) return &lt;p&gt;Error :(&lt;/p&gt;;  
+      
+        return data.allCourses.map((currentCourse) =&gt; (  
+            &lt;Course course={currentCourse} /&gt;  
+        ));  
+    }}  
+  &lt;/Query&gt;  
+);  
+  
+export default Courses;  
+
+</code></pre><p>This is the implementation of the Courses component. To retrieve data from the GraphQL endpoint this component makes use of another component from the React Apollo library: <em>Query</em>. The <em>Query</em> component makes it extremely easy to embed the GraphQL query directly in the JSX code of the component. Furthermore the <em>Query</em> component contains a callback method which is invoked once the GraphQL query is executed.</p>
+<p>Here we’re using the JavaScript map method to generate the HTML output for every single course record which is available in <em>data.allCourse</em>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hey! All this is cool but how does one decide which tech stack to use. The question has been answered several times and by several ingenious folks and there is no correct answer. It truly depends on use-case, complexity and scalability requirements for the application. Often at time you would have to evolve and change multiple things for your application. It is important to note that these stacks work perfectly well in tandem with each other. So, you can very well have Rails backend serving you a GraphQL along with React front-end. We know Rails is very good at handling back-end logic and we also know the React’s ability to handle front-end which gives us an amazing combination.</p>
+
+    <a href="/"> >> Home</a>
+  </main>
+</div>
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      ChaturBots AI Pvt Ltd
+      
+    </footer>
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+  </body>
+</html>
+

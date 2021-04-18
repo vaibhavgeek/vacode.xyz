@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on vacode</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on vacode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Jun 2020 00:01:00 -0700</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GraphQL , ReactJS and Apollo Client</title>
+      <link>/2020/06/graphql-reactjs-and-apollo-client_8.html</link>
+      <pubDate>Tue, 09 Jun 2020 00:01:00 -0700</pubDate>
+      
+      <guid>/2020/06/graphql-reactjs-and-apollo-client_8.html</guid>
+      <description>We will build a client-sided GraphQL application which will combine React with GraphQL. The application would allow us to gather facebook profile information
+The following tutorial will be split into four sections.
+ What is GraphQL and how is it different from REST API. What is Reactjs and Why should you use it? Creating a GraphQL backend in nodejs and express. Connecting Apollo Client to a react application  What is GraphQL and how is it different from REST API?</description>
+    </item>
+    
+    <item>
+      <title>Your First SPA in ReactJS, NodeJS</title>
+      <link>/2020/05/your-first-spa-in-reactjs-nodejs.html</link>
+      <pubDate>Thu, 21 May 2020 04:33:00 -0700</pubDate>
+      
+      <guid>/2020/05/your-first-spa-in-reactjs-nodejs.html</guid>
+      <description>Your First SPA in ReactJs, NodeJS Today we are going to build a simple blog application that will help you get started with ReactJS with back-end built over NodeJS The complete tutorial has been split into SIX IMPORTANT steps.
+  Installing the required tools
+  Understanding NodeJS structure (Back-end of your application)
+  Coding Your APIs
+  Understanding ReactJS structure (Front-end of your application)
+  Designing and Coding your Front-end</description>
+    </item>
+    
+    <item>
+      <title>Purists, Makers and Managers</title>
+      <link>/2019/09/purists-maker-and-manager.html</link>
+      <pubDate>Fri, 13 Sep 2019 18:24:00 -0700</pubDate>
+      
+      <guid>/2019/09/purists-maker-and-manager.html</guid>
+      <description>Whenever I hear the word Purists, I imagine John Nash working hard on his dorm room window sill or Ramanujan relentlessly scribbling on his notepad outside his scabby hut in Erode. I study in a pure science branch and the majority of interested folks tend to have a huge admiration towards the intellectual capital. Often academia and pure science seem to be filled with folks who enjoy making interrogative intonation in declarative sentences.</description>
+    </item>
+    
+    <item>
+      <title>Entrepreneurship after graduation?</title>
+      <link>/2017/03/why-entrepreneurship-is-best-way-to-go.html</link>
+      <pubDate>Thu, 30 Mar 2017 16:35:00 -0700</pubDate>
+      
+      <guid>/2017/03/why-entrepreneurship-is-best-way-to-go.html</guid>
+      <description>A lot of my friends are in computer science and there are a lot of them who are not but want to learn programming and get into software development so that they can hack the plethora of high paying white collar jobs out there. The government and and the industry seems to be happy about it and are fueling this environment with more venture fund and government funds. Sure, the number of different applications in which software can easily and dramatically increase productivity is practically unlimited, so each additional worker in the tech industry always has important problems to solve, and the other software engineers are occupied with their own problems.</description>
+    </item>
+    
+  </channel>
+</rss>
