@@ -1,0 +1,32 @@
+baseurl = "/"
+languageCode = "en-us"
+title = "vacode"
+theme = "hugo-classic"
+googleAnalytics = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+enableEmoji = true
+footnotereturnlinkcontents = "↩"
+unsafe = true
+[permalinks]
+    post = "/post/:year/:month/:day/:slug/"
+
+#[[menu.main]]
+#    name = "projects"
+#    url = "/projects/"
+#    weight = 1
+
+[[menu.main]]
+    name = "log"
+    url = "/log/"
+    weight = 2
+[params]
+    description = "Personal Blog of Vaibhav Maheshwari!"
+    footer = "ChaturBots AI Pvt Ltd"
+    custom_css = ["css/theme-override.css"]
+
+# If you want to use Fathom (https://usefathom.com) for analytics, add this section
+[params.fathomAnalytics]
+    siteID = "ABCDE"
+    # Default value is cdn.usefathom.com, overwrite this if you are self-hosting
+    serverURL = "analytics.example.com"
+
