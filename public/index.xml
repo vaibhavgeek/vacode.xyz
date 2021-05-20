@@ -6,20 +6,10 @@
     <description>Recent content in Home on vacode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Apr 2021 20:40:35 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 00:01:00 -0700</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Log</title>
-      <link>/log/</link>
-      <pubDate>Sun, 18 Apr 2021 20:40:35 +0530</pubDate>
-      
-      <guid>/log/</guid>
-      <description>[18/04] This page gets updated regularly and my this month&amp;rsquo;s aim is to,
- Complete Sheety Bots Project   Messaging Bot Flow Telegram Notification Bot Flow Use it for a week personally Create a short video and post it on producthunt Complete website and write detailed blog post.  Solve 30 questions in data structure and algorithms ranging in different topics.   Complete 3 questions in Stacks and Queues Complete 4 questions in Stacks and Queues Complete 3 questions in Trees Complete 4 questions in Trees Complete 5 questions in Binary Search Tree Complete 5 questions in Binary Search Trees Complete 3 questions in Binary Trees  </description>
-    </item>
     
     <item>
       <title>GraphQL , ReactJS and Apollo Client</title>
@@ -62,6 +52,15 @@ The following tutorial will be split into four sections.
       
       <guid>/2017/03/why-entrepreneurship-is-best-way-to-go.html</guid>
       <description>A lot of my friends are in computer science and there are a lot of them who are not but want to learn programming and get into software development so that they can hack the plethora of high paying white collar jobs out there. The government and and the industry seems to be happy about it and are fueling this environment with more venture fund and government funds. Sure, the number of different applications in which software can easily and dramatically increase productivity is practically unlimited, so each additional worker in the tech industry always has important problems to solve, and the other software engineers are occupied with their own problems.</description>
+    </item>
+    
+    <item>
+      <title>Monthly Logs</title>
+      <link>/log/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/log/</guid>
+      <description>[18/04] April Month  Complete Sheety Bots Project   Messaging Bot Flow Telegram Notification Bot Flow Use it for a week personally Create a short video and post it on producthunt Complete website and write detailed blog post.  Solve 30 questions in data structure and algorithms ranging in different topics.   Complete 3 questions in Stacks and Queues Complete 4 questions in Stacks and Queues Complete 3 questions in Trees Complete 4 questions in Trees Complete 5 questions in Binary Search Tree Complete 5 questions in Binary Search Trees Complete 3 questions in Binary Trees  Restrspection on Month: PROS</description>
     </item>
     
   </channel>
