@@ -41,4 +41,6 @@ CONS
  - [ ] Track Weight Week By Week 
  - [ ] Track Social Media Consumption Week by Week on Browser
  
- 3. Plan out a MultiPlayer Game in GoLang 
+ 3. Write a lot
+ - [ ] Write 5 articles 
+ - [ ] Read 50 articles atleast
